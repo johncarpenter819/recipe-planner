@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color: #111;
+  background-color: #fff;
+  line-height: 1.6;
+  background-color: #378e47;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+.text-center {
+  text-align: center;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+}
+p {
+  color: #666;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
