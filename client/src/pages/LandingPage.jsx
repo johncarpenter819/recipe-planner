@@ -1,8 +1,15 @@
 import "../styles/LandingPage.css";
 import MealMateLogo from "../assets/logo-bg.png";
 import TrayFood from "../assets/food-bg-lp.jpg";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    navigate("/auth");
+  };
+
   return (
     <main className="landing-page">
       <section className="hero">
@@ -17,7 +24,9 @@ export default function Home() {
         </p>
 
         <div className="hero-buttons">
-          <button className="btn primary-btn">Get Started</button>
+          <button className="btn primary-btn" onClick={handleGetStarted}>
+            Get Started
+          </button>
           <button className="btn secondary-btn">Learn More</button>
         </div>
       </section>
@@ -28,23 +37,26 @@ export default function Home() {
             <h3 className="feature-title">Smart Meal Planning</h3>
             <p className="feature-desc">
               Plan meals for any day or week. Drag, drop, and build your perfect
-              menu.
+              menu. Add your own recipes or browse curated options with
+              nutrition insights.
             </p>
           </div>
 
           <div className="feature-card">
-            <h3 className="feature-title">Create and Save Recipes</h3>
+            <h3 className="feature-title">Reduce Food Waste</h3>
             <p className="feature-desc">
-              Add your own recipes or browse curated options with nutrition
-              insights.
+              Planning ahead means less produce going bad in the fridge. Make
+              important decisions ahead of time and on your own schedule. Then
+              there's nothing to worry about when it's time to eat.
             </p>
           </div>
 
           <div className="feature-card">
-            <h3 className="feature-title">Auto-Generated Grocery List</h3>
+            <h3 className="feature-title">Automatic Grocery List</h3>
             <p className="feature-desc">
-              No more guessing - ingredients are pulled from your weekly
-              selections.
+              No more skipping meals because you're missing ingredients. Review
+              your meals for the week and the grocery list automatically
+              updates.
             </p>
           </div>
         </div>

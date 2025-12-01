@@ -5,7 +5,7 @@
   justify-content: center;
   text-align: center;
   padding: 6rem 2rem 100px 2rem;
-  background-color: #f7931e;
+  background-color: #378e47;
   position: relative;
   overflow: hidden;
 }
@@ -19,7 +19,7 @@
   transform: translateX(-50%);
   width: 200%;
   height: 200px;
-  background-color: #378e47;
+  background-color: white;
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
 .hero-title {
@@ -27,7 +27,7 @@
   font-weight: 600;
   max-width: 40rem;
   line-height: 1.2;
-  color: white;
+  color: #f7931e;
 }
 .hero-subtitle {
   font-size: 1.25rem;
@@ -51,11 +51,12 @@
   z-index: 2;
 }
 .hero-buttons .btn {
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
   border-radius: 9999px;
   cursor: pointer;
   transition: all 0.3s ease;
+  background-color: #f7931e;
 }
 .primary-btn {
   background-color: white;
@@ -63,7 +64,7 @@
   border: 1px solid #ccc;
 }
 .primary-btn:hover {
-  background-color: #f7931e;
+  background-color: #378e47;
   color: white;
 }
 .secondary-btn {
@@ -72,60 +73,63 @@
   border: 1px solid #ccc;
 }
 .secondary-btn:hover {
-  background-color: #f7931e;
+  background-color: #378e47;
   color: white;
 }
 .features {
   padding: 4rem 2rem 8rem 2rem;
-  max-width: 1200px;
-  margin: 0;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 .features-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
 }
 .feature-card {
-  background-color: #fff;
-  border: 1px solid #eee;
   border-radius: 2rem;
   padding: 2rem;
   transition: all 0.3s ease;
   max-width: 1000px;
 }
-.feature-card:hover {
-  box-shadow: 0 8px 24px rgba(247, 147, 30, 0.8);
-}
+
 .feature-title {
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f7931e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .feature-desc {
-  color: #666;
+  color: #378e47;
   margin-top: 0.75rem;
   line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .tray {
-  width: 50rem;
-  height: 50rem;
-  background-color: rgba(245, 245, 245, 0.884);
+  width: 20rem;
+  height: 20rem;
+  background-color: rgb(248, 248, 248);
   border-radius: 50%;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  position: absolute;
-  top: 65%;
-  right: 10rem;
-  transform: translateY(5%);
+  margin-top: 7rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 .plate {
-  position: absolute;
-  top: 13%;
-  right: 13%;
-  width: 38rem;
-  height: 38rem;
+  width: 18rem;
+  height: 18rem;
   background: #fff;
   border-radius: 50%;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
   animation: animatePlate 30s linear forwards infinite;
+  align-self: center;
+}
+.tray .plate {
+  position: relative;
 }
 
 @keyframes animatePlate {
