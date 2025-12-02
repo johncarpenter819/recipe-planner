@@ -1,0 +1,8 @@
+{
+  "name": "mealmate",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "cd client && npm run build"
+  }
+}
