@@ -4,8 +4,53 @@ import "../styles/AuthForm.css";
 const AuthForm = () => {
   const [isSignUpActive, setIsSignUpActive] = useState(false);
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+
   const switchToSignUp = () => setIsSignUpActive(true);
   const switchToLogin = () => setIsSignUpActive(false);
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setMessage(`Welcome ${data.user.name}!`);
+      } else {
+        setMessage(data.message || "Registration failed");
+      }
+    } catch (err) {
+      console.error(err);
+      setMessage("Something went wrong");
+    }
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setMessage(`Welcome back ${data.user.name}!`);
+      } else {
+        setMessage(data.message || "Login failed");
+      }
+    } catch (err) {
+      console.error(err);
+      setMessage("Something went wrong");
+    }
+  };
 
   return (
     <div className="body-bg">
@@ -14,26 +59,58 @@ const AuthForm = () => {
         id="container"
       >
         <div className="form-container sign-up-container">
-          <form action="#">
+          <form onSubmit={handleRegister}>
             <h1>Create Account</h1>
             <span>or use your email to register</span>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button>Register</button>
+            <input
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button type="submit">Register</button>
           </form>
         </div>
 
         <div className="form-container log-in-container">
-          <form action="#">
+          <form onSubmit={handleLogin}>
             <h1>Log In</h1>
             <span>Use your account</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
             <a href="#">Forgot your password?</a>
-            <button>Log In</button>
+            <button type="submit">Log In</button>
           </form>
         </div>
+        {message && <div className="auth-message">{message}</div>}
 
         <div className="overlay-container">
           <div className="overlay">
